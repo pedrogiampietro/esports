@@ -1,21 +1,17 @@
-import React from 'react'
-import { ImageBackground } from 'react-native'
-import { styles } from './styles'
+import { ImageBackground, StatusBar } from 'react-native';
+import { styles } from './styles';
+import React from 'react';
+import image from '../../assets/background-galaxy.png';
 
-import galaxyBackground from '../../assets/background-galaxy.png'
-
-interface BGProps {
-  children: React.ReactNode
+interface Props {
+    children: React.ReactNode;
 }
 
-export function Background({ children }: BGProps) {
-  return (
-	  <ImageBackground
-		  source={galaxyBackground}
-			defaultSource={galaxyBackground}
-			style={styles.container}
-		>
-		  { children }
-		</ImageBackground>
-	)
+export function Background({ children }: Props) {
+    return (
+        <ImageBackground source={ image } defaultSource={ image } style={ styles.container }>
+            <StatusBar barStyle="light-content" backgroundColor="transparent" translucent/>
+            { children }
+        </ImageBackground>
+    );
 }
